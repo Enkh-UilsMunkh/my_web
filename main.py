@@ -15,7 +15,8 @@ def home ():
 
 @app.route('/about')
 def about ():
-    return render_template('about.html')
+    f = "I love paying games, and I play piano on the moon"
+    return render_template('about.html' , message = f)
 
 #test github
 @app.route('/contact')
@@ -30,7 +31,7 @@ def calculator():
             num1 = float(request.form["num1"])
             num2 = float(request.form["num2"])
             operation = request.form["operation"]
-            
+
             # Perform the calculation based on the operation
             if operation == "+":
                 result = num1 + num2
@@ -44,7 +45,7 @@ def calculator():
                 result = "Invalid operation"
         except ValueError:
             result = "Please enter valid numbers."
-    
+
     return render_template("calculator.html", result=result)
 
 if __name__ == '__main__':
