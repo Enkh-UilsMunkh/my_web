@@ -1,11 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+{% extends "base.html" %}
+
+{% block title %}Welcome{% endblock %}
+
+{% block content %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Calculator</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='calculator.css') }}">
-</head>
+
 <body>
     <div class="container">
         <h1>Simple Calculator</h1>
@@ -31,5 +33,4 @@
             <h2>Result: {{ result }}</h2>
         {% endif %}
     </div>
-</body>
-</html>
+    {% endblock %}
