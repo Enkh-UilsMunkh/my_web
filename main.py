@@ -26,10 +26,16 @@ class User(db.Model):
     def __repr__(self):
         return f'<User {self.username}>'
 
+class Role(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(80), unique=True, nullable=False)
+
+    def __repr__(self):
+        return f'<Role {self.name}>'
 # Initialize Flask-Admin
 admin = Admin(app, name="My Admin Panel", template_mode="bootstrap3")
 admin.add_view(ModelView(User, db.session))
-
+admin.add_view(ModelView(Role, db.session))
 # Routes
 @app.route('/')
 def home():
