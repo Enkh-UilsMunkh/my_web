@@ -7,6 +7,8 @@ from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
 
+
+
 # Initialize Flask app
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.sqlite'  # Database configuration
@@ -55,7 +57,7 @@ class Role(db.Model):
 
     def __repr__(self):
         return f'<Role {self.name}>'
-    
+
 class Enkhuils(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), unique=True, nullable=False)
@@ -79,7 +81,7 @@ def home():
     users = Enkhuils.query.first()
     if users:
         greating = "Hi, I am testing my back-end. My name is {users.name}"
-    else: 
+    else:
         greating = "Hi, I am testing my back-end."
     return render_template('index.html', message=greating)
 
