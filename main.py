@@ -80,7 +80,7 @@ admin.add_view(ModelView(Enkhuils, db.session))
 def home():
     users = Enkhuils.query.first()
     if users:
-        greating = "Hi, I am testing my back-end. My name is {users.name}"
+        greating = f"Hi, I am testing my back-end. My name is {users.name}"
     else:
         greating = "Hi, I am testing my back-end."
     return render_template('index.html', message=greating)
