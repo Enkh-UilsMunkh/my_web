@@ -70,11 +70,20 @@ class Enkhuils(db.Model):
     def __repr__(self):
         return f'<Role {self.name}>'
 
+# Protect Admin
+class SecureModelView(ModelView):
+    def is_accessible(self):
+        return current_user.is_authenticated
+
+    def inaccessible_callback(self, name, **kwargs):
+        return redirect(url_for('login', next=request.url))
+
 # Initialize Flask-Admin
 admin = Admin(app, name="My Admin Panel", template_mode="bootstrap3")
-admin.add_view(ModelView(User, db.session))
-admin.add_view(ModelView(Role, db.session))
-admin.add_view(ModelView(Enkhuils, db.session))
+admin.add_view(SecureModelView(User, db.session))
+admin.add_view(SecureModelView(Role, db.session))
+admin.add_view(SecureModelView(Enkhuils, db.session))
+
 # Routes
 @app.route('/')
 def home():
@@ -146,6 +155,7 @@ def login():
 @login_required
 def logout():
     logout_user()
+    session.clear()
     flash('You have been logged out.', 'info')
     return redirect(url_for('login'))
 
