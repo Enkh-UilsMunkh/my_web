@@ -3,11 +3,8 @@ from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
 from flask_babel import Babel
 from flask import Flask, render_template, redirect, url_for, flash, request, session
-from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
-
-
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -30,6 +27,7 @@ login_manager.login_view = 'login'
 def load_user(user_id):
     return User.query.get(int(user_id))
 
+
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
@@ -39,9 +37,10 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(128), nullable=False)
     created_at = db.Column(db.DateTime, default=db.func.now())
     updated_at = db.Column(db.DateTime, default=db.func.now(), onupdate=db.func.now())
+    posts = db.relationship('Post', backref='author', lazy=True)
 
     def __repr__(self):
-        return f"<User {self.username}"
+        return f"<User {self.username}>"
 
     def set_password(self, password):
         """Hashes and sets the user's password."""
@@ -51,12 +50,14 @@ class User(db.Model, UserMixin):
         """Checks the provided password against the stored hash."""
         return check_password_hash(self.password, password)
 
+
 class Role(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), unique=True, nullable=False)
 
     def __repr__(self):
         return f'<Role {self.name}>'
+
 
 class Enkhuils(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -66,40 +67,62 @@ class Enkhuils(db.Model):
     grade = db.Column(db.String(120), nullable=True)
     age = db.Column(db.String(120), nullable=True)
 
+    def __repr__(self):
+        return f'<Enkhuils {self.name}>'
+
+
+# New Post Model
+class Post(db.Model):
+    __tablename__ = 'posts'
+
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    post = db.Column(db.Text, nullable=False)
+    author_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    author_name = db.Column(db.String(255), nullable=False)
+    created_at = db.Column(db.DateTime, default=db.func.now())
+    updated_at = db.Column(db.DateTime, default=db.func.now(), onupdate=db.func.now())
 
     def __repr__(self):
-        return f'<Role {self.name}>'
+        return f"<Post {self.id} by {self.author_name}>"
+
 
 # Initialize Flask-Admin
 admin = Admin(app, name="My Admin Panel", template_mode="bootstrap3")
 admin.add_view(ModelView(User, db.session))
 admin.add_view(ModelView(Role, db.session))
 admin.add_view(ModelView(Enkhuils, db.session))
+admin.add_view(ModelView(Post, db.session))
+
+
 # Routes
 @app.route('/')
 def home():
     users = Enkhuils.query.first()
+    posts = Post.query.order_by(Post.created_at.desc()).all()
     if users:
         greating = f"Hi, I am testing my back-end. My name is {users.name}"
     else:
         greating = "Hi, I am testing my back-end."
-    return render_template('index.html', message=greating)
+    return render_template('index.html', message=greating, posts=posts)
+
 
 @app.route('/about')
 def about():
     users = Enkhuils.query.first()
     f = "I love playing games, and I play piano on the moon"
-    return render_template('about.html', 
-                           message=f, 
-                           name=users.name, 
-                           dob=users.dob, 
-                           hobby=users.hobby, 
-                           grade=users.grade, 
+    return render_template('about.html',
+                           message=f,
+                           name=users.name,
+                           dob=users.dob,
+                           hobby=users.hobby,
+                           grade=users.grade,
                            age=users.age)
+
 
 @app.route('/contact')
 def contact():
     return render_template('contact.html')
+
 
 @app.route("/calculator", methods=["GET", "POST"])
 def calculator():
@@ -126,6 +149,7 @@ def calculator():
 
     return render_template("calculator.html", result=result)
 
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -142,12 +166,14 @@ def login():
 
     return render_template('login.html')
 
+
 @app.route('/logout')
 @login_required
 def logout():
     logout_user()
     flash('You have been logged out.', 'info')
     return redirect(url_for('login'))
+
 
 @app.route('/register/', methods=['GET', 'POST'])
 def register():
@@ -178,6 +204,24 @@ def register():
         return redirect(url_for('login'))
 
     return render_template('register.html')
+
+
+@app.route('/add_post', methods=['GET', 'POST'])
+@login_required
+def add_post():
+    if request.method == 'POST':
+        post_content = request.form['post']
+        new_post = Post(
+            post=post_content,
+            author_id=current_user.id,
+            author_name=current_user.username
+        )
+        db.session.add(new_post)
+        db.session.commit()
+        flash('Post created successfully!', 'success')
+        return redirect(url_for('home'))
+
+    return render_template('add_post.html')
 
 
 # Create database tables and run the app
