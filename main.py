@@ -223,6 +223,28 @@ def add_post():
 
     return render_template('add_post.html')
 
+# Show all posts
+@app.route('/posts')
+def show_posts():
+    posts = Post.query.order_by(Post.created_at.desc()).all()
+    return render_template('posts.html', posts=posts)
+
+# Create new post
+@app.route('/posts/new', methods=['GET', 'POST'])
+def create_post():
+    if request.method == 'POST':
+        post_content = request.form['post']
+        author_id = request.form['author_id']
+        author_name = request.form['author_name']
+
+        new_post = Post(post=post_content, author_id=author_id, author_name=author_name)
+        db.session.add(new_post)
+        db.session.commit()
+
+        return redirect(url_for('show_posts'))
+
+    return render_template('new_post.html')
+
 
 # Create database tables and run the app
 if __name__ == '__main__':
