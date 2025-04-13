@@ -6,10 +6,12 @@
 </head>
 <body>
     <nav>
-       <a href="/">Home</a>
-       <a href="/about">About</a>
-       <a href="/contact">Contact</a>
-       <a href="/calculator">Simple Calculator</a>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+        <a href="/calculator">Simple Calculator</a>
+        <a href="{{ url_for('add_post') }}">New Post</a>
+        <a href="{{ url_for('show_posts') }}">All Posts</a>
     </nav>
 
     {% block content %}{% endblock %}
