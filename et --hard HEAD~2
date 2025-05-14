@@ -1,0 +1,149 @@
+[33mcommit f2f5fd10349d4d0fdf564800659341997470be4e[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: Enkh-UilsMunkh <enkh28923@gmail.com>
+Date:   Tue May 13 23:47:19 2025 +0000
+
+    Add .gitignore and remove config.json from tracking
+
+[33mcommit a9b366ca3255f31dcfec4c304b8e68ab2195be56[m
+Author: Enkh-UilsMunkh <enkh28923@gmail.com>
+Date:   Tue May 6 16:30:14 2025 +0000
+
+    Added translate
+
+[33mcommit 4044523e1d1250998c46a67345ef1952c2c3b46d[m
+Author: Enkh-UilsMunkh <enkh28923@gmail.com>
+Date:   Sun Apr 27 16:15:32 2025 +0000
+
+    Added projects in nav
+
+[33mcommit b6b39544ccde21b6765fc48149474b1d8e8bd5d2[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: byambatsogt enkhbat <byambaa1982@gmail.com>
+Date:   Sun Apr 20 11:22:14 2025 -0500
+
+    added projects page
+
+[33mcommit 5b37df041c565ea4f52a9eaeda14af491042fc1e[m
+Author: byambatsogt enkhbat <byambaa1982@gmail.com>
+Date:   Sun Apr 13 11:34:49 2025 -0500
+
+    added posts images
+
+[33mcommit 5aba2f3453bc253fb904490cee7d60436d37d534[m
+Author: Enkh-UilsMunkh <enkh28923@gmail.com>
+Date:   Sun Apr 13 16:02:43 2025 +0000
+
+    added post to table
+
+[33mcommit c82dfe5845a92aee38a50f7d72f0f97df1d06af4[m
+Author: Enkh-UilsMunkh <enkh28923@gmail.com>
+Date:   Sun Apr 6 16:32:11 2025 +0000
+
+    Added post to the table
+
+[33mcommit dd0917a7ceca188ddd4e50658092adc919edd651[m
+Author: byambatsogt enkhbat <byambaa1982@gmail.com>
+Date:   Sun Mar 30 11:56:41 2025 -0500
+
+    added posts
+
+[33mcommit 045c20e4348567178246f85e2e04d9ddaaeb142a[m
+Author: Enkh-UilsMunkh <enkh28923@gmail.com>
+Date:   Sun Mar 23 16:09:34 2025 +0000
+
+    Added post but not working
+
+[33mcommit 580adf82403ab7b9a65d9eb2ea80ee987009f962[m
+Author: Enkh-UilsMunkh <enkh28923@gmail.com>
+Date:   Sun Mar 16 16:19:07 2025 +0000
+
+    changed the photo
+
+[33mcommit 71dc1a78059ab19aa54f445ad5933e4105110a19[m
+Author: byambatsogt enkhbat <byambaa1982@gmail.com>
+Date:   Sun Mar 9 11:59:42 2025 -0500
+
+    added f string into main
+
+[33mcommit 2d97251e8775f02b7d09395f3b640b1fbdab4049[m
+Author: byambatsogt enkhbat <byambaa1982@gmail.com>
+Date:   Sun Mar 9 11:56:50 2025 -0500
+
+    update about
+
+[33mcommit 84bef99353e6ccbca5f24d8575ca4f13f9bfe89f[m
+Author: Enkh-UilsMunkh <enkh28923@gmail.com>
+Date:   Sun Mar 9 16:11:01 2025 +0000
+
+    images
+
+[33mcommit 1124b406f78d0a9ab222010d6f59753e07b4bfe4[m
+Author: Enkh-UilsMunkh <enkh28923@gmail.com>
+Date:   Sun Jan 26 15:26:10 2025 +0000
+
+    updated registration form
+
+[33mcommit 13d00e2998fd0943097a2459d01c1f591449f12e[m
+Author: byambatsogt enkhbat <byambaa1982@gmail.com>
+Date:   Mon Jan 20 10:11:43 2025 -0600
+
+    added registration and login
+
+[33mcommit fc72ce284c9ee2b735ea993a756e4e684a04cefd[m
+Author: byambatsogt enkhbat <byambaa1982@gmail.com>
+Date:   Sun Jan 12 12:48:09 2025 -0600
+
+    Byamba edited main and base
+
+[33mcommit e4aac8db11aea4894078181bc99c7ac4e98171f3[m
+Author: Enkh-UilsMunkh <enkh28923@gmail.com>
+Date:   Sun Jan 12 18:36:58 2025 +0000
+
+    I added the role in the admin
+
+[33mcommit 19f2d1f3a5ebb1f79149a0ef1dfe942b6fe8d8c0[m
+Author: byambatsogt enkhbat <byambaa1982@gmail.com>
+Date:   Sun Jan 12 11:55:22 2025 -0600
+
+    added an admin panel
+
+[33mcommit 6ad9d382bb6c877c58bece842f23e2156f470690[m
+Author: byambatsogt enkhbat <byambaa1982@gmail.com>
+Date:   Sun Jan 12 11:47:16 2025 -0600
+
+    added base.html
+
+[33mcommit 6cbc9c2c27179f6be81ee908c962c5cf920db179[m
+Author: Enkh-UilsMunkh <enkh28923@gmail.com>
+Date:   Sun Jan 5 17:55:05 2025 +0000
+
+    I learned how to do back end code
+
+[33mcommit e65b862345c69c5023067fced6591a800765cbf7[m
+Author: byambatsogt enkhbat <byambaa1982@gmail.com>
+Date:   Sun Jan 5 11:41:32 2025 -0600
+
+    I added calculator
+
+[33mcommit d605cb3d7a2fc53fb135032e0143480fc23c2ff1[m
+Author: byambatsogt enkhbat <byambaa1982@gmail.com>
+Date:   Sun Jan 5 11:20:55 2025 -0600
+
+    I added an image in index
+
+[33mcommit 607af20bf3de16643fea5357bc90b6e46be86049[m
+Author: Enkh-UilsMunkh <enkh28923@gmail.com>
+Date:   Sun Jan 5 17:04:25 2025 +0000
+
+    I changed html and css
+
+[33mcommit d942e3c2f50cdf9c5634c1e0a0d927b04799166a[m
+Author: Enkh-UilsMunkh <enkh28923@gmail.com>
+Date:   Sat Dec 28 19:35:04 2024 +0000
+
+    It is my second change
+
+[33mcommit 9dd31aa14c64a5a67de8bd6655ddc5fc14757553[m
+Author: Enkh-UilsMunkh <enkh28923@gmail.com>
+Date:   Sat Dec 28 19:24:00 2024 +0000
+
+    Hello
