@@ -8,6 +8,7 @@ from flask_login import LoginManager, UserMixin, login_user, logout_user, login_
 from routes import register_blueprints
 from werkzeug.utils import secure_filename
 import os
+from datetime import datetime
 
 UPLOAD_FOLDER = 'static/uploads'
 
@@ -234,6 +235,10 @@ def create_post():
 
     return render_template('new_post.html')
 
+# Add this context processor to provide 'now' in templates
+@app.context_processor
+def inject_now():
+    return {'now': datetime.now}
 
 # Create database tables and run the app
 if __name__ == '__main__':

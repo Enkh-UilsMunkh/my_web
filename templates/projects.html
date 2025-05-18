@@ -3,28 +3,40 @@
 {% block title %}Projects{% endblock %}
 
 {% block content %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='projects.css') }}">
-    <h1>Projects</h1>
-    <div class="projects-grid">
-        <div class="project-card">
-            <a href="/calculator">
-                <img src="{{ url_for('static', filename='images/calculator.png') }}" alt="Weather App">
-                <h2>Calculator App</h2>
-            </a>
-        </div>
-        <div class="project-card">
-            <a href="/posts/new">
-                <img src="{{ url_for('static', filename='images/new_posts.png') }}" alt="To-Do List">
-                <h2>Create Posts</h2>
-            </a>
-        </div>
-        <div class="project-card">
-            <a href="/posts">
-                <img src="{{ url_for('static', filename='images/blog.png') }}" alt="Blog Site">
-                <h2>Posts</h2>
-            </a>
-        </div>
+<div class="projects-hero">
+    <h1>Our Projects</h1>
+    <p>Discover amazing projects created by our talented community. Get inspired and start your own!</p>
+</div>
+<section class="featured-project">
+    <h2>Featured Project</h2>
+    <div class="project-card featured">
+        <img src="{{ url_for('static', filename='images/calculator.png') }}" alt="Calculator App">
+        <h3>Calculator App</h3>
+        <p>A simple and powerful calculator built for students. Try it <a href="/calculator">here</a>!</p>
     </div>
+</section>
+<section class="projects-grid">
+    <div class="project-card">
+        <img src="{{ url_for('static', filename='images/new_posts.png') }}" alt="To-Do List">
+        <h3>To-Do List</h3>
+        <p>Organize your tasks and boost your productivity with our easy-to-use to-do list app.</p>
+    </div>
+    <div class="project-card">
+        <img src="{{ url_for('static', filename='images/blog.png') }}" alt="Blog Site">
+        <h3>Blog Site</h3>
+        <p>Share your thoughts, stories, and ideas with the world on our blogging platform.</p>
+    </div>
+    <div class="project-card">
+        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=facearea&w=400&h=200&q=80" alt="Weather App">
+        <h3>Weather App</h3>
+        <p>Check the latest weather updates and forecasts for your city.</p>
+    </div>
+    <div class="project-card">
+        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=facearea&w=400&h=200&q=80" alt="Quiz Game">
+        <h3>Quiz Game</h3>
+        <p>Test your knowledge with fun quizzes on various topics.</p>
+    </div>
+</section>
 {% endblock %}
 
 

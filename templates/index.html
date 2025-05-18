@@ -3,7 +3,98 @@
 {% block title %}Welcome{% endblock %}
 
 {% block content %}
-    <h1>Welcome to My Website</h1>
-    <h2>{{ message }}</h2>
-    <img src="{{ url_for('static', filename='images/image.jpg') }}" alt="Dashboard" style="width:70%">
+<div class="hero">
+    <div class="hero-text">
+        <h1>Welcome to MyWeb!</h1>
+        <p>Your one-stop platform for learning, sharing, and growing. Explore our projects, read posts, and connect with a vibrant community of students and creators.</p>
+        <button id="learnMoreBtn">Learn More</button>
+    </div>
+    <img class="hero-img" src="{{ url_for('static', filename='images/image.jpg') }}" alt="Dashboard">
+</div>
+
+<section class="features">
+    <h2>What You Can Do Here</h2>
+    <div class="feature-list">
+        <div class="feature">
+            <h3>📚 Learn</h3>
+            <p>Access tutorials, guides, and resources to boost your knowledge.</p>
+        </div>
+        <div class="feature">
+            <h3>📝 Share</h3>
+            <p>Write posts, share your projects, and inspire others with your work.</p>
+        </div>
+        <div class="feature">
+            <h3>🤝 Connect</h3>
+            <p>Join a friendly community, comment, and collaborate on ideas.</p>
+        </div>
+    </div>
+</section>
+
+<section class="testimonials">
+    <h2>What Our Users Say</h2>
+    <div class="testimonial-carousel">
+        <div class="testimonial active">
+            <p>"This site helped me finish my science project!"</p>
+            <span>- Alex, 8th Grade</span>
+        </div>
+        <div class="testimonial">
+            <p>"I love sharing my code and getting feedback."</p>
+            <span>- Jamie, 7th Grade</span>
+        </div>
+        <div class="testimonial">
+            <p>"The calculator app is so useful for my homework!"</p>
+            <span>- Priya, 6th Grade</span>
+        </div>
+    </div>
+    <div class="carousel-controls">
+        <button id="prevTestimonial">&#8592;</button>
+        <button id="nextTestimonial">&#8594;</button>
+    </div>
+</section>
+
+<section class="fun-fact">
+    <h2>Did You Know?</h2>
+    <p id="funFact">Loading a fun fact...</p>
+</section>
+
+<script>
+// Carousel functionality
+const testimonials = document.querySelectorAll('.testimonial');
+let currentTestimonial = 0;
+function showTestimonial(idx) {
+    testimonials.forEach((el, i) => {
+        el.classList.toggle('active', i === idx);
+    });
+}
+document.getElementById('prevTestimonial').onclick = function() {
+    currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+    showTestimonial(currentTestimonial);
+};
+document.getElementById('nextTestimonial').onclick = function() {
+    currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+    showTestimonial(currentTestimonial);
+};
+
+// Fun fact functionality
+const facts = [
+    "Honey never spoils. Archaeologists have found 3000-year-old honey in ancient tombs!",
+    "Bananas are berries, but strawberries aren't.",
+    "A group of flamingos is called a 'flamboyance'.",
+    "Octopuses have three hearts.",
+    "The Eiffel Tower can be 15 cm taller during hot days."
+];
+function showRandomFact() {
+    const idx = Math.floor(Math.random() * facts.length);
+    document.getElementById('funFact').textContent = facts[idx];
+}
+showRandomFact();
+
+// Learn More button
+const learnMoreBtn = document.getElementById('learnMoreBtn');
+if (learnMoreBtn) {
+    learnMoreBtn.onclick = () => {
+        window.scrollTo({ top: document.querySelector('.features').offsetTop - 40, behavior: 'smooth' });
+    };
+}
+</script>
 {% endblock %}

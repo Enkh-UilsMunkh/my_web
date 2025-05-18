@@ -1,13 +1,36 @@
 {% extends "base.html" %}
 
-{% block title %}Welcome{% endblock %}
+{% block title %}Contact Us{% endblock %}
 
 {% block content %}
-    <h1>Contact page</h1>
-    <h2>My contacts</h2>
-    <p>Phone Number: 847-338-9979
-    Email: munkhe093@gmail.com
-    </p>
-    <a href="https://google.com" target="_blank">Visit google.com</a>
-
+<div class="contact-hero">
+    <h1>Contact Us</h1>
+    <p>We'd love to hear from you! Reach out with questions, feedback, or just to say hello.</p>
+</div>
+<div class="contact-content">
+    <div class="contact-card">
+        <h2>Contact Information</h2>
+        <p><strong>Phone:</strong> (847) 338-9979</p>
+        <p><strong>Email:</strong> munkhe093@gmail.com</p>
+        <p><strong>Address:</strong> 123 Main St, Skokie, IL 60076</p>
+        <div class="social-links">
+            <a href="#" title="Instagram">📸 Instagram</a>
+            <a href="#" title="Twitter">🐦 Twitter</a>
+            <a href="#" title="Facebook">📘 Facebook</a>
+        </div>
+    </div>
+    <div class="contact-form">
+        <h2>Send Us a Message</h2>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit" disabled>Send (Mock)</button>
+        </form>
+    </div>
+</div>
+<div class="map-placeholder">
+    <h3>Our Location</h3>
+    <div class="map-box">[Map Placeholder]</div>
+</div>
 {% endblock %}
